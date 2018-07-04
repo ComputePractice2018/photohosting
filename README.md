@@ -45,8 +45,9 @@
     }
 ```
 
-    Ответ: 201 created
-    Location: /api/photohosting/profile/1
+Ответ: 201 created
+
+Location: /api/photohosting/profile/1
 
 
  ###  PUT /api/photohosting/profile/1
@@ -64,12 +65,14 @@
     }
 ```
 
-    Ответ: 202 accepted
-    Location: /api/photohosting/profile/1
+Ответ: 202 accepted
+
+Location: /api/photohosting/profile/1
 
 
- ###  DELETE /api/photohosting/profile/1
-    Ответ: 204 No content
+
+###  DELETE /api/photohosting/profile/1
+Ответ: 204 No content
 
 
 ### POST /api/photohosting/profile/1/photos
