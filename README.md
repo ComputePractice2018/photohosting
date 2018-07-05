@@ -123,5 +123,6 @@ Location: /api/photohosting/profile/1/photos/1
     }
  ```
 
+
 Ответ: 200 OK
 Location: /api/photohosting/profile/1/friends/1
