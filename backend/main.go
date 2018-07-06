@@ -1,14 +1,8 @@
 package main
 
-import (
-	"flag"
-	"fmt"
-
-	"github/ComputePractice2018/photohosting/backend/utils"
-)
+import "fmt"
 
 func main() {
-	var name := flag.String("name", "slimz", "имя для приветствия")
-	flag.Parse()
-	fmt.Println(utils.GetHelloWorldString(*name))
+	fmt.Println("Hello, world")
+	fmt.Println("Hello, %s", "slimz" )
 }
