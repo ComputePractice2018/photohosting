@@ -1,12 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-// GetHelloWorldString возвращает строку приветствия
-func GetHelloWorldString(name string) string {
-	return fmt.Sprintf("Hello, %s", name)
-}
+	"github/ComputePractice2018/photohosting/backend/utils"
+)
 
 func main() {
-	fmt.Println(GetHelloWorldString("slimz"))
+	fmt.Println(utils.GetHelloWorldString("slimz"))
 }
