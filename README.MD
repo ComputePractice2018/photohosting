@@ -17,11 +17,10 @@ GET /api/photohosting/profile
     [{
         "name": "Имя",
         "nickname": "Псевдоним",
-        "e-mail": "user@domain.com",
+        "email": "user@domain.com",
         "description": "О себе",
         "birthday": "День рождения",
         "photos": "Фотографии:",
-        
     }]
 POST /api/photohosting/profile
 Тело запроса:
@@ -29,7 +28,7 @@ POST /api/photohosting/profile
     {
         "name": "Имя",
         "nickname": "Псевдоним",
-        "e-mail": "user@domain.com",
+        "email": "user@domain.com",
         "description": "О себе",
         "birthday": "День рождения",
         "github" "user"
@@ -44,7 +43,7 @@ PUT /api/photohosting/profile/1
     {
         "name": "Имя",
         "nickname": "Псевдоним",
-        "e-mail": "user@domain.com",
+        "email": "user@domain.com",
         "description": "О себе",
         "birthday": "День рождения",
         "github" "user"

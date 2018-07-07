@@ -1,14 +1,18 @@
 package main
 
 import (
-	"flag"
-	"fmt"
+	"log"
+	"net/http"
 
-	"github/ComputePractice2018/photohosting/backend/utils"
+	"github.com/ComputePractice2018/photohosting/backend/server"
 )
 
 func main() {
-	var name := flag.String("name", "slimz", "имя для приветствия")
-	flag.Parse()
-	fmt.Println(utils.GetHelloWorldString(*name))
+	//name := flag.String("name", "slimz", "имя для приветствия")
+	//flag.Parse()
+
+	http.HandleFunc("/api/photohosting/profile", server.GetProfile)
+
+	log.Fatal(http.ListenAndServe(":8080", nil))
+
 }
