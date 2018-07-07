@@ -1,6 +1,5 @@
-# photohosting
+Usecases
 
-## Usecases
 
 1. Как пользователь, я хочу иметь возможность видеть все свои фотографии
 1. Как пользователь, я хочу иметь возможность добавлять свои фотографии
@@ -9,13 +8,12 @@
 1. Как пользователь, я хочу иметь возможность редактировать описание своих фотографий
 
 
-## REST API
+REST API
 
-### GET /api/photohosting/profile
 
+GET /api/photohosting/profile
 Ответ: 200 OK
 
-```json
     [{
         "name": "Имя",
         "nickname": "Псевдоним",
@@ -25,14 +23,9 @@
         "photos": "Фотографии:",
         
     }]
-
-```
-
-### POST /api/photohosting/profile
-
+POST /api/photohosting/profile
 Тело запроса:
 
-```json
     {
         "name": "Имя",
         "nickname": "Псевдоним",
@@ -41,18 +34,13 @@
         "birthday": "День рождения",
         "github" "user"
     }
-```
-
 Ответ: 201 created
 
 Location: /api/photohosting/profile/1
 
-
- ###  PUT /api/photohosting/profile/1
-
+PUT /api/photohosting/profile/1
 Тело запроса:
 
-```json
     {
         "name": "Имя",
         "nickname": "Псевдоним",
@@ -61,60 +49,36 @@ Location: /api/photohosting/profile/1
         "birthday": "День рождения",
         "github" "user"
     }
-```
-
 Ответ: 202 accepted
 
 Location: /api/photohosting/profile/1
 
-
-
-###  DELETE /api/photohosting/profile/1
+DELETE /api/photohosting/profile/1
 Ответ: 204 No content
 
-
-### POST /api/photohosting/profile/1/photos
-
+POST /api/photohosting/profile/1/photos
 Тело запроса:
 
-```json
     {
         "photos": "Фотографии:",
     }
-```
+Ответ: 200 OK Location: /api/photohosting/profile/1/photos/1
 
-Ответ: 200 OK
-Location: /api/photohosting/profile/1/photos/1
-
-
-### DELETE /api/photohosting/profile/1/photos/1
+DELETE /api/photohosting/profile/1/photos/1
 Ответ: 200 OK
 
-
-
-### GET /api/photohosting/profile/1/photos
-
-
+GET /api/photohosting/profile/1/photos
 Тело запроса:
 
-```json
     {
         "photos": "Фотографии:",
     }
-```
 Ответ: 200 OK
 
-
-
-### PUT /api/photohosting/profile/1/photos/1/description
-
-
+PUT /api/photohosting/profile/1/photos/1/description
 Тело запроса:
 
-```json
     {
         "description": "Описание:",
     }
-```
-Ответ: 200 OK
-Location: /api/photohosting/profile/1/photos/1/description
+Ответ: 200 OK Location: /api/photohosting/profile/1/photos/1/description
