@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github/ComputePractice2018/photohosting/backend/utils"
+	"github.com/ComputePractice2018/photohosting/backend/utils"
 )
 
 func main() {
