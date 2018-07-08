@@ -21,6 +21,14 @@ func main() {
 	("PUT")
 	router.HandleFunc("/api/photohosting/profile/{id}", server.DeleteProfile).Methods
 	("DELETE")
+	router.HandleFunc("/api/photohosting/profile/{id}/photos", server.GetProfile).Methods
+	("GET")
+	router.HandleFunc("/api/photohosting/profile/{id}/photos", server.AddProfile).Methods
+	("POST")
+	router.HandleFunc("/api/photohosting/profile/{id}/photos/{id}", server.EditProfile).Methods
+	("PUT")
+	router.HandleFunc("/api/photohosting/profile/{id}/photos/{id}", server.DeleteProfile).Methods
+	("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
