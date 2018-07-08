@@ -70,7 +70,11 @@ func EditProfile(w http.ResponseWriter, r *http.Request) {
 
 }
 
+<<<<<<< HEAD
 // DeleteProfile обрабатывает DELETE запрос для профиля
+=======
+// DeleteProfile обрабатывает DELETE запрос
+>>>>>>> 91228973201efb9fd0904b3af8200b9de17ff33b
 func DeleteProfile(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])
@@ -82,6 +86,7 @@ func DeleteProfile(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = data.RemoveProfile(id)
+<<<<<<< HEAD
 	if err != nil {
 		message := fmt.Sprintf("Incorrect ID: %v", err)
 		http.Error(w, message, http.StatusBadRequest)
@@ -163,6 +168,8 @@ func DeletePhoto(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = data.RemovePhoto(id)
+=======
+>>>>>>> 91228973201efb9fd0904b3af8200b9de17ff33b
 	if err != nil {
 		message := fmt.Sprintf("Incorrect ID: %v", err)
 		http.Error(w, message, http.StatusBadRequest)
