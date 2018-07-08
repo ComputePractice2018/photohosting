@@ -70,8 +70,8 @@ func EditProfile(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// DeleteContact обрабатывает DELETE запрос
-func DeleteContact(w http.ResponseWriter, r *http.Request) {
+// DeleteProfile обрабатывает DELETE запрос
+func DeleteProfile(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])
 	if err != nil {
@@ -81,7 +81,7 @@ func DeleteContact(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = data.RemoveContact(id)
+	err = data.RemoveProfile(id)
 	if err != nil {
 		message := fmt.Sprintf("Incorrect ID: %v", err)
 		http.Error(w, message, http.StatusBadRequest)
