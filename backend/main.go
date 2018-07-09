@@ -13,9 +13,8 @@ func main() {
 
 	http.HandleFunc("/api/photohosting/profile", server.GetProfile)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
-
-=======
+	log.Fatal(http.ListenAndServe(":8080", nil)
+		  
 	"github.com/ComputePractice2018/photohosting/backend/utils"
 )
 
