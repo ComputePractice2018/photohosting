@@ -1,20 +1,14 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"flag"
+	"fmt"
 
-	"github.com/ComputePractice2018/photohosting/backend/data"
-	"github.com/ComputePractice2018/photohosting/backend/server"
+	"github.com/ComputePractice2018/photohosting/backend/utils"
 )
 
 func main() {
-	//name := flag.String("name", "slimz", "имя для преветствия")
-	//flag.Parse()
-	profileList := data.NewProfileList()
-	router := server.NewRouter(profileList)
-	photoList := data.NewPhotoList()
-	router := server.NewRouter(photoList)
-
-	log.Fatal(http.ListenAndServe(":8080", router))
+	var name = flag.String("name", "slimz", "имя для приветствия")
+	flag.Parse()
+	fmt.Println(utils.GetHelloWorldString(*name))
 }
