@@ -42,16 +42,16 @@ func TestCrudHandlers(t *testing.T) {
 	if resp.StatusCode != http.StatusCreated {
 		t.Errorf("Expected 201 code (gotten: %d)", resp.StatusCode)
 	}
-	if resp.Header.Get("Location") != "/api/photohosting/profiles/0" {
+	if resp.Header.Get("Location") != "/api/photohosting/profiles/1" {
 		t.Error("Expected another location")
 	}
 
-	if len(cl.GetProfiles()) != 1 {
+	if len(cl.GetProfile()) != 1 {
 		t.Error("Expected new value")
 	}
 
 	testData = strings.NewReader(testProfile)
-	req, err = http.NewRequest("PUT", "/api/photohosting/profiles/0", testData)
+	req, err = http.NewRequest("PUT", "/api/photohosting/profiles/1", testData)
 
 	w = httptest.NewRecorder()
 	router.ServeHTTP(w, req)
@@ -60,7 +60,7 @@ func TestCrudHandlers(t *testing.T) {
 	if resp.StatusCode != http.StatusAccepted {
 		t.Errorf("Expected 201 code (gotten: %d)", resp.StatusCode)
 	}
-	if resp.Header.Get("Location") != "/api/photohosting/profiles/0" {
+	if resp.Header.Get("Location") != "/api/photohosting/profiles/1" {
 		t.Error("Expected another location")
 	}
 
@@ -68,7 +68,7 @@ func TestCrudHandlers(t *testing.T) {
 		t.Error("Expected old value")
 	}
 
-	req, err = http.NewRequest("DELETE", "/api/photohosting/profiles/0", nil)
+	req, err = http.NewRequest("DELETE", "/api/photohosting/profiles/1", nil)
 
 	w = httptest.NewRecorder()
 	router.ServeHTTP(w, req)
@@ -77,7 +77,7 @@ func TestCrudHandlers(t *testing.T) {
 	if resp.StatusCode != http.StatusNoContent {
 		t.Errorf("Expected 204 code (gotten: %d)", resp.StatusCode)
 	}
-	if len(cl.GetProfiles()) != 0 {
+	if len(cl.Getprofiles()) != 0 {
 		t.Error("Expected old value")
 	}
 }
