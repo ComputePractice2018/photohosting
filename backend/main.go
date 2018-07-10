@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	var name := flag.String("name", "slimz", "имя для приветствия")
+	var name = flag.String("name", "slimz", "имя для приветствия")
 	flag.Parse()
 	fmt.Println(utils.GetHelloWorldString(*name))
 }

@@ -11,5 +11,7 @@ FROM alpine:3.7
 WORKDIR /opt
 COPY --from=builder /go/bin/photohosting /opt/photohosting
 
+EXPOSE 8080
 
-ENTRYPOINT [ "/opt/photohosting" ]
+ENV NAME "Ivan"
+ENTRYPOINT /opt/photohosting -name ${NAME}
