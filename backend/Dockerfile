@@ -1,1 +1,1 @@
-FROM alpine:3.7
+FROM golang:alpine
