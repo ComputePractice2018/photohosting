@@ -1,11 +1,10 @@
 FROM golang:alpine as builder
 
-ENV SRC=/go/src/github.com/ComputePractice2018/photohosting
+ENV SRC=/go/src/github.com/ComputePractice2018/photohosting/backend/
 RUN mkdir -p '${SRC}'
-ADD main.go ${SRC}
-ADD utils/ ${SRC}
+ADD . ${SRC}
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go/bin/photohosting ${SRC}
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go/bin/photohosting github.com/ComputePractice2018/photohosting/backend
 
 FROM alpine:3.7
 
