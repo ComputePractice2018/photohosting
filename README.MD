@@ -69,3 +69,21 @@ PUT /api/photohosting/profile/1/photos/1/description Тело запроса:
     "description": "Описание:",
 }
 Ответ: 200 OK Location: /api/photohosting/profile/1/photos/1/description
+
+## Как собрать и запустить
+
+Backend:
+
+```bat
+cd backend
+docker build -f Dockerfile -t photohostingbackend:<имя ветки> .
+docker run --rm --name photohosting -e NAME=<параметр приложения> photohostingbackend:<имя ветки>
+```
+
+Frontend:
+
+```bat
+cd backend
+docker build -f Dockerfile -t photohostingfrontend:<имя ветки> .
+docker run -d --rm --name photohostingfrontend -p 80:80 photohostingfrontend:<имя ветки>
+```
