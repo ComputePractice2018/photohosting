@@ -4,6 +4,7 @@ import "testing"
 
 var testProfiles = []Profile{
 	{
+		ID:          1,
 		Name:        "Ivan",
 		Nickname:    "Ivivan44",
 		Email:       "iivanov@mail.com",
@@ -12,6 +13,7 @@ var testProfiles = []Profile{
 		Photos:      "Фотографии",
 	},
 	{
+		ID:          2,
 		Name:        "Sergey",
 		Nickname:    "Serg0vich",
 		Email:       "ssergeev@mail.com",
@@ -23,25 +25,23 @@ var testProfiles = []Profile{
 
 func TestAddProfile(t *testing.T) {
 	cl := NewProfileList()
-
 	cl.AddProfile(testProfiles[0])
 
 	if cl.GetProfiles()[0] != testProfiles[0] {
-		t.Errorf("AddProfile is not working")
+		t.Errorf("AddContact is not working")
 	}
 }
-
 func TestEditProfile(t *testing.T) {
 	cl := NewProfileList()
 	cl.AddProfile(testProfiles[0])
 
-	err := cl.EditProfile(testProfiles[1], 0)
+	err := cl.EditProfile(testProfiles[1], 1)
 
 	if cl.GetProfiles()[0] != testProfiles[1] {
 		t.Errorf("EditProfile is not working")
 	}
 	if err != nil {
-		t.Errorf("Unexpected EditProfile error")
+		t.Errorf("Unexpected EditProfile error: %+v", err)
 	}
 
 	err = cl.EditProfile(testProfiles[1], -1)
@@ -56,7 +56,7 @@ func TestRemoveProfile(t *testing.T) {
 	cl.AddProfile(testProfiles[0])
 	cl.AddProfile(testProfiles[1])
 
-	err := cl.RemoveProfile(0)
+	err := cl.RemoveProfile(1)
 
 	if cl.GetProfiles()[0] != testProfiles[1] {
 		t.Errorf("RemoveProfile is not working")
