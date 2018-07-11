@@ -4,7 +4,7 @@ import Photohosting from '@/components/Photohosting.vue'
 
 describe('Photohosting.vue', () => {
   it('renders props.title when passed', () => {
-    const title = 'Name'
+    const title = 'Название'
     const wrapper = shallowMount(Photohosting, {
       propsData: { title }
     })
