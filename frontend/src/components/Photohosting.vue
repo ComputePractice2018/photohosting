@@ -1,41 +1,71 @@
 <template>
   <div class="Photohosting">
-    <h1>{{ title }}</h1>
+     <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
+      <template slot="header">
+        {{ title}}
+      </template>
+    </b-jumbotron>
 
     <h3 v-if="error">Ошибка: {{error}}</h3>
 
-    <table>
+    <table class="table">
+      <thead>
       <tr>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Телефон</th>
+        <th>name</th>
+        <th>nickname</th>
         <th>email</th>
+        <th>description</th>
         <th>birthday</th>
         <th>photos</th>
+        <th></th>
+        <th></th>
       </tr>
-      <tr v-for="profile in profile_list" v-bind:key="profile.email">
+      </thead>
+      <tbody>
+      <tr v-for="profile in profile" v-bind:key="profile.id">
         <td>{{profile.name}}</td>
         <td>{{profile.nickname}}</td>
         <td>{{profile.email}}</td>
         <td>{{profile.description}}</td>
         <td>{{profile.birthday}}</td>
         <td>{{profile.photos}}</td>
-        <td><button v-on:click="edit_profile(profile)">Редактировать контакт</button></td>
-        <td><button v-on:click="remove_profile(profile)">Удалить контакт</button></td>
+        <td><b-button variant="warning" v-on:click="edit_profile(profile)">Редактировать профиль</b-button></td>
+        <td><b-button variant="danger" v-on:click="remove_profile(profile)">Удалить профиль</b-button></td>
       </tr>
+      </tbody>
     </table>
 
-    <h3 v-if="edit_index == -1">Новый контакт</h3>
-    <form>
-      <p>Имя: <input type="text" v-model="new_profile.name"></p>
-      <p>Фамилия: <input type="text" v-model="new_profile.nickname"></p>
-      <p>Телефон: <input type="text" v-model="new_profile.email"></p>
-      <p>description: <input type="text" v-model="new_profile.description"></p>
-      <p>Gihub: <input type="text" v-model="new_profile.birthday"></p>
-      <p>Gihub: <input type="text" v-model="new_profile.photos"></p>
-      <button v-if="edit_index == -1" v-on:click="add_new_profile">Добавить контакт</button>
-      <button v-if="edit_index > -1" v-on:click="end_of_edition">Закончить редактирование</button>
-    </form>
+    <b-card>
+    <b-form>
+      <h3 v-if="edit_index == -1">Новый профиль</h3>
+      <b-form-group label="name:">
+        <b-form-input v-model="new_profile.name" required>
+        </b-form-input>
+      </b-form-group>
+      <b-form-group label="nickname:">
+        <b-form-input v-model="new_profile.surname" required>
+        </b-form-input>
+      </b-form-group>
+      <b-form-group label="email:">
+        <b-form-input v-model="new_profile.phone" required>
+        </b-form-input>
+      </b-form-group>
+      <b-form-group label="description:">
+        <b-form-input v-model="new_profile.email" type="email" required>
+        </b-form-input>
+      </b-form-group>
+      <b-form-group label="birthday:">
+        <b-form-input v-model="new_profile.github" required>
+        </b-form-input>
+      </b-form-group>
+      <b-form-group label="photos:">
+        <b-form-input v-model="new_profile.github" required>
+        </b-form-input>
+      </b-form-group>
+      <b-button variant="success" v-if="edit_index == -1" v-on:click="add_new_profile">Добавить профиль</b-button>
+      <b-button variant="success" v-if="edit_index > -1" v-on:click="end_of_profile">Закончить редактирование</b-button>
+    </b-form>
+    </b-card>
   </div>
 </template>
 
@@ -53,6 +83,7 @@ export default {
       profile_list: [],
       new_profile:
         {
+          'id': 0,
           'name': '',
           'nickname': '',
           'email': '',
@@ -86,7 +117,7 @@ export default {
     },
     remove_profile: function (item) {
       this.error = ''
-      const url = '/api/Photohosting/profile/' + this.profile_list.indexOf(item)
+      const url = '/api/Photohosting/profile/' + item.id
       axios.delete(url).then(response => {
         this.profile_list.splice(this.profile_list.indexOf(item), 1)
       }).catch(response => {
@@ -99,10 +130,11 @@ export default {
     },
     end_of_edition: function () {
       this.error = ''
-      const url = '/api/Photohosting/profile/' + this.edit_index
+      const url = '/api/Photohosting/profile/' + this.new_profile.id
       axios.put(url, this.new_profile).then(response => {
         this.edit_index = -1
         this.new_profile = {
+          'id': 0,
           'name': '',
           'nickname': '',
           'email': '',
