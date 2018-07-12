@@ -6,10 +6,10 @@
 
     <table>
       <tr>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Телефон</th>
+        <th>name</th>
+        <th>nickname</th>
         <th>email</th>
+        <th>description</th>
         <th>birthday</th>
         <th>photos</th>
       </tr>
