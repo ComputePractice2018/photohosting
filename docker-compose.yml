@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+  
+  proxy:
+    depends_on:
+        - backend
+        - frontend
+    build:    
+      context: .  
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"

@@ -1,7 +1,7 @@
 FROM golang:alpine as builder
 
 RUN apk add --no-cache git
-RUN go get -u github.com/jinzhu/gorm 
+RUN go get -u github.com/jinzhu/gorm
 RUN go get -u github.com/go-sql-driver/mysql
 RUN go get -u github.com/gorilla/mux
 
