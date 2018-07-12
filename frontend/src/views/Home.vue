@@ -14,4 +14,8 @@ export default {
     Photohosting
   }
 }
+
 </script>
+
+</script>
+

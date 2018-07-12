@@ -36,16 +36,20 @@
       <button v-if="edit_index == -1" v-on:click="add_new_profile">Добавить пользователя</button>
       <button v-if="edit_index > -1" v-on:click="end_of_edition">Редактировать</button>
    </form>
+
   </div>
 </template>
 
 <script>
+
 const axios = require('axios')
+
 
 export default {
   name: 'Photohosting',
   props: {
     title: String
+
   },
   data: function () {
     return {
@@ -119,6 +123,12 @@ export default {
 }
 </script>
 
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
+
 <style scoped>
 
 </style>
+
