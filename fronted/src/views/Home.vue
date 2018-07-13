@@ -3,7 +3,6 @@
     <Photohosting title="Фотохостинг"/>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
 import Photohosting from '@/components/Photohosting.vue'
@@ -15,3 +14,6 @@ export default {
   }
 }
 </script>
+
+<style>
+</style>
